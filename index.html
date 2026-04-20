@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas Kanban</title>
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="logo">
+            <span class="logo-icono"><img src="assets/img/logo.png" alt="Logo"></span>
+            <h1>Gestor de Tareas</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!-- FORMULARIO PARA AGREGAR TAREA -->
+        <section class="formulario-tarea">
+            <h2>Agregar Nueva Tarea</h2>
+            <form id="form-tarea">
+                <!-- Descripción -->
+                <div class="campo">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" placeholder="Escribe la tarea..." required></textarea>
+                </div>
+                <!-- Prioridad -->
+                <div class="campo">
+                    <label for="prioridad">Prioridad:</label>
+                    <select id="prioridad" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="alta">Alta</option>
+                        <option value="media">Media</option>
+                        <option value="baja">Baja</option>
+                    </select>
+                </div>
+                <!-- Fecha límite -->
+                <div class="campo">
+                    <label for="fecha">Fecha límite:</label>
+                    <input type="date" id="fecha" required>
+                </div>
+                <!-- Botón enviar -->
+                <button type="submit" class="btn-agregar">Agregar Tarea</button>
+            </form>
+        </section>
+
+        <!-- TABLERO KANBAN (3 columnas) -->
+        <section class="tablero-kanban">
+            <!-- Columna Pendientes -->
+            <div class="columna" id="pendientes">
+                <h3>Pendientes <span class="contador" id="contador-pendientes">0</span></h3>
+                <div class="tareas-container" id="pendientes-container"></div>
+            </div>
+            <!-- Columna En Progreso -->
+            <div class="columna" id="en-progreso">
+                <h3>En Progreso <span class="contador" id="contador-progreso">0</span></h3>
+                <div class="tareas-container" id="progreso-container"></div>
+            </div>
+            <!-- Columna Completadas -->
+            <div class="columna" id="completadas">
+                <h3>Completadas <span class="contador" id="contador-completadas">0</span></h3>
+                <div class="tareas-container" id="completadas-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>Contacto: soporte@gestortareas.cl | Numero: +56 9 1234 5678</p>
+        <p>&copy; 2026 Gestor de Tareas - Evaluación N°2</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

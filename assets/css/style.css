@@ -1,0 +1,269 @@
+/* ===== VARIABLES CSS (root) ===== */
+:root {
+    /* Colores principales */
+    --color-primario: #2563eb;
+    --color-secundario: #7c3aed;
+    --color-terciario: #10b981;
+
+    /* Colores de estado (para bordes o fondos suaves) */
+    --color-pendiente: #3b82f6;
+    --color-progreso: #f59e0b;
+    --color-completado: #10b981;
+
+    /* Tipografía */
+    --fuente-principal: 'Segoe UI', system-ui, sans-serif;
+    --tamano-base: 16px;
+
+    /* Espaciado */
+    --espacio-xs: 0.5rem;
+    --espacio-sm: 1rem;
+    --espacio-md: 1.5rem;
+    --espacio-lg: 2rem;
+
+    /* Sombras */
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== RESETEO BÁSICO ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    font-size: var(--tamano-base);
+    background-color: #f9fafb;
+    color: #1f2937;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== ENCABEZADO ===== */
+header {
+    background-color: white;
+    box-shadow: var(--sombra-suave);
+    padding: var(--espacio-sm) var(--espacio-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+}
+
+.logo-icono {
+    img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--espacio-md);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--color-secundario);
+}
+
+/* ===== SECCIÓN FORMULARIO ===== */
+.formulario-tarea {
+    background-color: white;
+    padding: var(--espacio-md);
+    margin: var(--espacio-md);
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+}
+
+.formulario-tarea h2 {
+    margin-bottom: var(--espacio-sm);
+    color: var(--color-primario);
+}
+
+.campo {
+    margin-bottom: var(--espacio-sm);
+}
+
+.campo label {
+    display: block;
+    margin-bottom: var(--espacio-xs);
+    font-weight: 600;
+}
+
+.campo textarea,
+.campo select,
+.campo input {
+    width: 100%;
+    padding: var(--espacio-xs);
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-agregar {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+.btn-agregar:hover {
+    background-color: var(--color-secundario);
+    transform: scale(1.01);
+}
+
+/* ===== TABLERO KANBAN ===== */
+.tablero-kanban {
+    display: flex;
+    gap: var(--espacio-md);
+    padding: 0 var(--espacio-md) var(--espacio-md);
+    flex: 1;
+}
+
+/* Columnas */
+.columna {
+    background-color: #f3f4f6;
+    border-radius: 12px;
+    padding: var(--espacio-sm);
+    flex: 1;
+    min-width: 250px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.columna h3 {
+    margin-bottom: var(--espacio-sm);
+    padding-bottom: var(--espacio-xs);
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contador {
+    background-color: rgba(0,0,0,0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.tareas-container {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xs);
+}
+
+/* ===== TARJETAS DE TAREA ===== */
+.tarjeta {
+    background-color: white;
+    border-radius: 8px;
+    padding: var(--espacio-sm);
+    box-shadow: var(--sombra-suave);
+    border-left: 6px solid; /* Color según estado/prioridad */
+    transition: box-shadow 0.2s;
+    cursor: grab;
+}
+
+.tarjeta:hover {
+    box-shadow: var(--sombra-media);
+}
+
+/* Colores según prioridad (borde izquierdo) */
+.tarjeta.prioridad-alta {
+    border-left-color: #ef4444; /* rojo */
+}
+.tarjeta.prioridad-media {
+    border-left-color: #f59e0b; /* ámbar */
+}
+.tarjeta.prioridad-baja {
+    border-left-color: #10b981; /* verde */
+}
+
+/* Estilos para mostrar fecha */
+.tarjeta .fecha {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: var(--espacio-xs);
+}
+
+.tarjeta .descripcion {
+    font-weight: 500;
+    margin-bottom: var(--espacio-xs);
+}
+
+/* Botones dentro de la tarjeta */
+.tarjeta-acciones {
+    display: flex;
+    gap: var(--espacio-xs);
+    margin-top: var(--espacio-sm);
+    flex-wrap: wrap;
+}
+
+.tarjeta-acciones button {
+    background-color: #e5e7eb;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tarjeta-acciones button:hover {
+    background-color: #d1d5db;
+}
+
+.btn-mover {
+    background-color: var(--color-pendiente);
+    color: white;
+}
+.btn-mover:hover {
+    filter: brightness(0.9);
+}
+
+.btn-eliminar {
+    background-color: #fecaca !important;
+    color: #b91c1c !important;
+}
+.btn-eliminar:hover {
+    background-color: #fca5a5 !important;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: white;
+    text-align: center;
+    padding: var(--espacio-md);
+    margin-top: auto;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+    color: #4b5563;
+}

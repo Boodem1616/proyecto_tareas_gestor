@@ -1,0 +1,52 @@
+/* ===== DISEÑO RESPONSIVE - 3 BREAKPOINTS ===== */
+
+/* Tablets y pantallas medianas (máximo 900px) */
+@media screen and (max-width: 900px) {
+    .tablero-kanban {
+        flex-direction: column;
+    }
+    
+    .columna {
+        min-width: auto;
+    }
+}
+
+/* Móviles grandes / Tablets pequeñas (máximo 600px) */
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        margin-top: var(--espacio-xs);
+    }
+    
+    .formulario-tarea {
+        margin: var(--espacio-sm);
+    }
+    
+    .tarjeta-acciones button {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Móviles pequeños (máximo 400px) */
+@media screen and (max-width: 400px) {
+    :root {
+        --tamano-base: 14px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .campo textarea {
+        min-height: 60px;
+    }
+    
+    .tarjeta-acciones {
+        flex-direction: column;
+    }
+}

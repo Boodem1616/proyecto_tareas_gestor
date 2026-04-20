@@ -1,0 +1,35 @@
+# Documentación de uso de IA
+
+## Modelo utilizado
+- **Modelo:** ChatGPT (OpenAI) / Claude (Anthropic) / Asistente de código.
+- **Versión:** Modelo de lenguaje avanzado con capacidad de generación de código.
+
+## Prompts documentados
+
+### Prompt 1: Estructura inicial
+> "Necesito un tablero Kanban básico con HTML, CSS y JavaScript vanilla. Debe tener tres columnas: Pendientes, En Progreso, Completadas. Un formulario para agregar tareas con descripción, prioridad y fecha. Cada tarjeta debe permitir moverse entre columnas y eliminarse. Usa variables CSS y diseño responsive."
+
+**Respuesta de la IA:** Proporcionó la estructura base de archivos, código HTML con secciones semánticas, estilos con variables y un script que maneja el estado.
+
+### Prompt 2: Mejora de persistencia
+> "Agrega localStorage para que las tareas no se pierdan al recargar la página."
+
+**Respuesta:** La IA sugirió funciones `cargarTareas()` y `guardarTareas()`, integrándolas en la inicialización y después de cada modificación del array de tareas.
+
+### Prompt 3: Ajustes de estilo y contadores
+> "Quiero que los contadores de tareas se actualicen automáticamente y que los colores de prioridad se muestren en el borde izquierdo de la tarjeta."
+
+**Respuesta:** Se añadió lógica para actualizar los spans con clase `contador` y se aplicaron clases CSS condicionales según la prioridad.
+
+## Ajustes manuales realizados
+- Se modificó la función `crearElementoTarjeta` para que los botones se generen dinámicamente según el estado, evitando botones redundantes.
+- Se ajustaron los breakpoints en `responsive.css` para mejorar la experiencia en móviles pequeños.
+- Se corrigió la delegación de eventos para que funcione correctamente con elementos creados dinámicamente.
+
+## Reflexión crítica
+La IA fue de gran ayuda para generar el esqueleto funcional rápidamente. Sin embargo, fue necesario:
+- Revisar la accesibilidad de los botones y asegurar que los `data-*` attributes sean consistentes.
+- Probar manualmente en distintos navegadores.
+- Optimizar la legibilidad del código y añadir comentarios en español.
+
+La combinación de generación automática + revisión humana permitió cumplir con los requisitos en menos tiempo, manteniendo buenas prácticas.
